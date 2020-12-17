@@ -1,0 +1,2483 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+
+
+        /*地區樣式1*/
+        .AreaColor1 td div {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            /*background-image: url(images/alpha.png);*/
+
+            /*background-repeat: no-repeat;*/
+            background-repeat: repeat;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 13px;
+
+        }
+
+        /*地區樣式2*/
+        .AreaColor2 td {
+            padding: 2px;
+        }
+
+        .AreaColor2 td div {
+            height: 30px;
+            line-height: 30px;
+            min-width: 80px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 13px;
+            color: #fff;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        /*滑鼠效果*/
+        .AreaColor1 td div:hover, .AreaColor2 td div:hover {
+            -mox-opacity: 0.8;
+            filter: alpha(opacity=80);
+            opacity: 0.8;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+    <title>轉爐石使用情形</title>
+</head>
+<body>
+
+
+<div class="container1 p-4">
+
+
+    <div class="card border-info m-a-1" style="">
+        <div class="card-header text-center">
+                <h3 class="m-0 text-primary font-weight-bold">轉爐石使用情形</h3>
+        </div>
+        <div class="card-body">
+            <form class="form-horizontal" id="form">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">查詢年度 <span
+                                class="text-danger">*</span></label>
+                    <div class="col-sm-2">
+                                                <input type="hidden" name="isPostBack" value="true">
+                        <input type="hidden" id="area" name="area" value="">
+
+                        <select class="form-control" name="year">
+                                <option >2020</option>
+                                <option  selected>2019</option>
+                                <option >2018</option>
+                                <option >2017</option>
+                        </select>
+                    </div>
+
+
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">使用地縣市別 <span class="text-danger">*</span>
+                    </label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="city" required>
+                            <option value="">請選擇</option>
+                            <option value="基隆市" >基隆市</option>
+                            <option value="台北市" >台北市</option>
+                            <option value="新北市" >新北市</option>
+                            <option value="宜蘭縣" >宜蘭縣</option>
+                            <option value="新竹市" >新竹市</option>
+                            <option value="新竹縣" >新竹縣</option>
+                            <option value="桃園市" >桃園市</option>
+                            <option value="苗栗縣" >苗栗縣</option>
+                            <option value="台中市" >台中市</option>
+                            <option value="彰化縣" >彰化縣</option>
+                            <option value="南投縣" >南投縣</option>
+                            <option value="嘉義市" >嘉義市</option>
+                            <option value="嘉義縣" >嘉義縣</option>
+                            <option value="雲林縣" >雲林縣</option>
+                            <option value="台南市"  selected>台南市</option>
+                            <option value="高雄市" >高雄市</option>
+                            <option value="屏東縣" >屏東縣</option>
+                            <option value="台東縣" >台東縣</option>
+                            <option value="花蓮縣" >花蓮縣</option>
+                            <option value="金門縣" >金門縣</option>
+                            <option value="連江縣" >連江縣</option>
+                            <option value="澎湖縣" >澎湖縣</option>
+                        </select>
+                    </div>
+
+                    <label for="useType" class="col-sm-2 col-form-label">使用用途</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="useType" id="useType">
+                            <option value="">全部</option>
+                            <option value="AC" >AC</option>
+                            <option value="BOFS_TP" >海事工程</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">查詢月份起</label>
+                    <div class="col-sm-6">
+
+                        <div class="input-group">
+                            <select class="form-control" name="fromMonth">
+                                    <option  selected>01</option>
+                                    <option >02</option>
+                                    <option >03</option>
+                                    <option >04</option>
+                                    <option >05</option>
+                                    <option >06</option>
+                                    <option >07</option>
+                                    <option >08</option>
+                                    <option >09</option>
+                                    <option >10</option>
+                                    <option >11</option>
+                                    <option >12</option>
+                            </select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">至</span>
+                            </div>
+                            <select class="form-control" name="endMonth">
+                                    <option >01</option>
+                                    <option >02</option>
+                                    <option >03</option>
+                                    <option >04</option>
+                                    <option >05</option>
+                                    <option >06</option>
+                                    <option >07</option>
+                                    <option >08</option>
+                                    <option >09</option>
+                                    <option >10</option>
+                                    <option >11</option>
+                                    <option  selected>12</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <label for="category" class="col-sm-2 col-form-label">查詢單位類別</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="category" name="category">
+                            <option value="">全部</option>
+                            <option value="中央部會" >中央部會</option>
+                            <option value="地方政府" >地方政府</option>
+                            <option value="其他單位" >其他單位</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="custName" class="col-sm-2 col-form-label">查詢工程單位</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="custName" name="custName">
+                            <option value="">全部</option>
+
+
+                            <optgroup label="中央部會">
+                                        <option value="公路總局" >
+                                            公路總局
+                                        </option>
+                                        <option value="水利署" >
+                                            水利署
+                                        </option>
+                                        <option value="營建署" >
+                                            營建署
+                                        </option>
+                                        <option value="高速公路局" >
+                                            高速公路局
+                                        </option>
+                            </optgroup>
+
+                            <optgroup label="地方政府">
+                                        <option value="南投縣政府" >
+                                            南投縣政府
+                                        </option>
+                                        <option value="台中市政府" >
+                                            台中市政府
+                                        </option>
+                                        <option value="台南市政府" >
+                                            台南市政府
+                                        </option>
+                                        <option value="屏東縣政府" >
+                                            屏東縣政府
+                                        </option>
+                                        <option value="新竹縣政府" >
+                                            新竹縣政府
+                                        </option>
+                                        <option value="桃園市政府" >
+                                            桃園市政府
+                                        </option>
+                                        <option value="苗栗縣政府" >
+                                            苗栗縣政府
+                                        </option>
+                                        <option value="高雄市政府" >
+                                            高雄市政府
+                                        </option>
+                            </optgroup>
+
+                            <optgroup label="其它">
+                                        <option value="台水" >
+                                            台水
+                                        </option>
+                                        <option value="工業區服務中心" >
+                                            工業區服務中心
+                                        </option>
+                                        <option value="港務公司" >
+                                            港務公司
+                                        </option>
+                                        <option value="瑪家國中" >
+                                            瑪家國中
+                                        </option>
+                            </optgroup>
+
+
+                        </select>
+                    </div>
+                    <div class="col-sm-5">
+                    </div>
+
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary" onclick="$('#area').val('')">查詢</button>
+                        <a  class="btn btn-secondary" href="/api/index">重設</a>
+                    </div>
+
+
+                </div>
+
+                <div class="areaStyle scrollable col-md-3 offset-md-3">
+    <div style="display: none">麻豆區</div>
+    <div style="display: none">柳營區</div>
+    <div style="display: none">市南區</div>
+    <div style="display: none">市東區</div>
+    <div style="display: none">安南區</div>
+    <div style="display: none">西港區</div>
+    <div style="display: none">安平區</div>
+    <div style="display: none">北門區</div>
+    <div style="display: none">永康區</div>
+
+
+
+
+
+    <table class="AreaColor1">
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <div class="badge badge-secondary">後壁區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">白河區</div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="badge badge-secondary">鹽水區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">新營區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">柳營區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">東山區</div>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="badge badge-secondary">北門區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">學甲區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">下營區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">官田區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">六甲區</div>
+            </td>
+            <td>&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="badge badge-secondary">將軍區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">佳里區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">麻豆區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">善化區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">大內區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">楠西區</div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="badge badge-secondary">七股區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">西港區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">安定區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">新市區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">山上區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">玉井區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">南化區</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="badge badge-secondary">安南區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">中西區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">北區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">永康區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">善化區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">左鎮區</div>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="badge badge-secondary">安平區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">東區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">仁德區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">歸仁區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">關廟區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">龍崎區</div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="badge badge-secondary">南區</div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <div class="row p-l-2 p-r-2">
+                    <div id="area" class="col-6 text-left">
+                        <label style="width: auto;">
+                            <span class="">查詢範圍:</span>
+                        </label>
+                        <span class="badge badge-info" style="">台南市</span>
+                        <span class="badge badge-info" style=""></span>
+                    </div>
+
+                    <div id="note" class="col-6 text-right">
+                        <span class="badge badge-danger">紅色</span><span>:</span><span style="padding-left: .5rem;">有使用</span>
+                        <span class="badge badge-secondary">灰色</span><span>:</span><span style="padding-left: .5rem;">沒使用</span>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+    </div>
+    <br/>
+
+
+            <table class="table table-bordered table-sm" id="example">
+                <thead>
+                <tr class="table-info text-center">
+                    <th scope="col" style="width:8%">縣市別</th>
+                    <th scope="col" style="width:8%">鄉鎮區</th>
+                    <th scope="col" style="width:18%">工程名稱</th>
+                    <th scope="col" style="width:18%">工程地點</th>
+                    <th scope="col" style="width:12%">工程單位</th>
+                    <th scope="col" style="width:9%">轉爐石來源</th>
+                    <th scope="col" style="width:8%">加工機構</th>
+                    <th scope="col" style="width:7%">使用用途</th>
+                    <th scope="col" style="width:12%">使用重量(公噸)</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">麻豆區</td>
+                        <td class="text-left">108年_水利署六河局_曾文溪上游右岸寮廍提防道路</td>
+                        <td class="text-left">台南市麻豆區寮廍里曾文溪上游右岸堤防道路</td>
+                        <td class="text-center">水利署</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">21.32</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">麻豆區</td>
+                        <td class="text-left">108年_水利署六河局_曾文溪上游右岸寮廍提防道路</td>
+                        <td class="text-left">台南市麻豆區寮廍里曾文溪上游右岸堤防道路</td>
+                        <td class="text-center">水利署</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">21.7</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,746.02</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">麻豆區</td>
+                        <td class="text-left">108年_水利署六河局_曾文溪上游右岸寮廍提防道路</td>
+                        <td class="text-left">台南市麻豆區寮廍里曾文溪上游右岸堤防道路</td>
+                        <td class="text-center">水利署</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">25.56</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">695.62</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">674.38</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年台灣自來水股份有限公司第六區管理處「南區國民路(健康路-國民路巷口)汰換管線工程」</td>
+                        <td class="text-left">台南市南區國民路</td>
+                        <td class="text-center">台水</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">85.86</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,207.94</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年台灣自來水股份有限公司第六區管理處「南區國民路(健康路-國民路巷口)汰換管線工程」</td>
+                        <td class="text-left">台南市南區國民路</td>
+                        <td class="text-center">台水</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">194.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">133.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">745.68</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">885.92</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">331.44</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">271.16</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市南區德興路（永興三街到中華南路）</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">642.24</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安南區城西焚化爐廠內道路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">642.24</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安南區本淵橋</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">642.24</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安平區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安平區安平路（安北路到平生路）</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">642.24</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安南區四草大橋</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">642.24</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">360.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">北門區</td>
+                        <td class="text-left">公路總局五工處台61線南下279K+423~281K+221路面整修工程</td>
+                        <td class="text-left">台南市北門區</td>
+                        <td class="text-center">公路總局</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">134.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">552.44</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年濱南路(台86線至灣裡路88巷)路面改善工程</td>
+                        <td class="text-left">台南市南區濱南路(台86線路口至灣裡路88巷口)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">694</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">2,605.96</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中龍</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">973.58</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">222.54</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年濱南路(台86線至灣裡路88巷)路面改善工程</td>
+                        <td class="text-left">台南市南區濱南路(台86線路口至灣裡路88巷口)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中龍</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">221.61</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">永康區</td>
+                        <td class="text-left">108年永康區自強路（環工路至王行路）道路改善工程</td>
+                        <td class="text-left">台南市永康區自強路(環工路至王行路)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,238.42</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">325.6</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">北門區</td>
+                        <td class="text-left">公路總局五工處台61線南下279K+423~281K+221路面整修工程</td>
+                        <td class="text-left">台南市北門區</td>
+                        <td class="text-center">公路總局</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">87.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市南區德興路（永興三街到中華南路）</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">657.64</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安南區城西焚化爐廠內道路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">657.64</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安南區本淵橋</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">657.64</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安平區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安平區安平路（安北路到平生路）</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">657.64</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">臺南市政府工務局第一工務大隊107年「市區道路改善」</td>
+                        <td class="text-left">台南市安南區四草大橋</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">657.64</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">北門區</td>
+                        <td class="text-left">公路總局五工處台61線南下279K+423~281K+221路面整修工程</td>
+                        <td class="text-left">台南市北門區</td>
+                        <td class="text-center">公路總局</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">311.34</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">137.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">北門區</td>
+                        <td class="text-left">公路總局五工處台61線南下279K+423~281K+221路面整修工程</td>
+                        <td class="text-left">台南市北門區</td>
+                        <td class="text-center">公路總局</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">940.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">189.66</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">165.08</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年台水六管處台南給水廠南區國民路(大同路-國民路270巷口)汰換管線工程</td>
+                        <td class="text-left">台南市南區 大同路-國民路270巷口</td>
+                        <td class="text-center">台水</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">306.04</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">215.78</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南區中華西路一段道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路一段(1)健康路至新興路：0K~0K+960 (2)新和路至清水路：0K~0K+592</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">2,161.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南區中華西路一段道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路一段(1)健康路至新興路：0K~0K+960 (2)新和路至清水路：0K~0K+592</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">721.8</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年濱南路(台86線至灣裡路88巷)路面改善工程</td>
+                        <td class="text-left">台南市南區濱南路(台86線路口至灣裡路88巷口)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中龍</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">422.27</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">378.18</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南區中華西路一段道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路一段(1)健康路至新興路：0K~0K+960 (2)新和路至清水路：0K~0K+592</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">715.4</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">263.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">永康區</td>
+                        <td class="text-left">108年永康區自強路（環工路至王行路）道路改善工程</td>
+                        <td class="text-left">台南市永康區自強路(環工路至王行路)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">390.7</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">435.46</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">永康區</td>
+                        <td class="text-left">108年永康區自強路（環工路至王行路）道路改善工程</td>
+                        <td class="text-left">台南市永康區自強路(環工路至王行路)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">622.28</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">48.98</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,031.94</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市東區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市東區  (裕永路與平實路口 )市警局東區拖吊場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區聖母廟旁停車場</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市南區中華西路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與本原街二段106巷口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區慶和路</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">西港區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市西港區南45線道</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與安吉路(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與長溪路路口(東往西方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與育英街口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">安南區</td>
+                        <td class="text-left">108年南市工務局第一工務大隊(安南瀝青廠)-市區道路改善工程</td>
+                        <td class="text-left">台南市安南區台江大道與海佃路口(西往東方向)快車道路口改善</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">135.5</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,039.72</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">677</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年濱南路(台86線至灣裡路88巷)路面改善工程</td>
+                        <td class="text-left">台南市南區濱南路(台86線路口至灣裡路88巷口)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,326.68</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">市南區</td>
+                        <td class="text-left">108年濱南路(台86線至灣裡路88巷)路面改善工程</td>
+                        <td class="text-left">台南市南區濱南路(台86線路口至灣裡路88巷口)</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">2,030.12</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">台南市</th>
+                        <td class="text-center">柳營區</td>
+                        <td class="text-left">108年柳營區南95線及南108 線道路優質化工程</td>
+                        <td class="text-left">台南市柳營區</td>
+                        <td class="text-center">台南市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,091.88</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "searching": false,
+            iDisplayLength: 50,
+            bDestroy: true,
+            tPaginate: true,
+            bPaginate: true,
+            responsive: true,
+            // colReorder: true,
+            lengthChange: true,
+            fixedHeader: true,
+            dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+
+            language: {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 項結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+                "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
+                "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+                "infoPostFix": "",
+                "search": "",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            }
+        });
+
+
+        var citys = ["麻豆區","柳營區","市南區","市東區","安南區","西港區","安平區","北門區","永康區"];
+
+        // 讓 LABEL 發光
+        $.each(citys, function (key, value) {
+            $('.areaStyle').find('div:contains(' + value + ')').addClass('badge-danger');
+        });
+
+
+        // 點 LABEL 自動 SUBMIT
+        $('.areaStyle td').on('click', function () {
+            var area = $(this).text().trim();
+            $('#area').val(area);
+            $('#form').submit();
+            //alert($(this).text().trim());
+        })
+
+    });
+</script>
+
+</body>
+</html>

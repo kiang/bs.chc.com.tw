@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+
+
+        /*地區樣式1*/
+        .AreaColor1 td div {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            /*background-image: url(images/alpha.png);*/
+
+            /*background-repeat: no-repeat;*/
+            background-repeat: repeat;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 13px;
+
+        }
+
+        /*地區樣式2*/
+        .AreaColor2 td {
+            padding: 2px;
+        }
+
+        .AreaColor2 td div {
+            height: 30px;
+            line-height: 30px;
+            min-width: 80px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 13px;
+            color: #fff;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        /*滑鼠效果*/
+        .AreaColor1 td div:hover, .AreaColor2 td div:hover {
+            -mox-opacity: 0.8;
+            filter: alpha(opacity=80);
+            opacity: 0.8;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+    <title>轉爐石使用情形</title>
+</head>
+<body>
+
+
+<div class="container1 p-4">
+
+
+    <div class="card border-info m-a-1" style="">
+        <div class="card-header text-center">
+                <h3 class="m-0 text-primary font-weight-bold">轉爐石使用情形</h3>
+        </div>
+        <div class="card-body">
+            <form class="form-horizontal" id="form">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">查詢年度 <span
+                                class="text-danger">*</span></label>
+                    <div class="col-sm-2">
+                                                <input type="hidden" name="isPostBack" value="true">
+                        <input type="hidden" id="area" name="area" value="">
+
+                        <select class="form-control" name="year">
+                                <option >2020</option>
+                                <option >2019</option>
+                                <option  selected>2018</option>
+                                <option >2017</option>
+                        </select>
+                    </div>
+
+
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">使用地縣市別 <span class="text-danger">*</span>
+                    </label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="city" required>
+                            <option value="">請選擇</option>
+                            <option value="基隆市" >基隆市</option>
+                            <option value="台北市" >台北市</option>
+                            <option value="新北市" >新北市</option>
+                            <option value="宜蘭縣" >宜蘭縣</option>
+                            <option value="新竹市" >新竹市</option>
+                            <option value="新竹縣" >新竹縣</option>
+                            <option value="桃園市"  selected>桃園市</option>
+                            <option value="苗栗縣" >苗栗縣</option>
+                            <option value="台中市" >台中市</option>
+                            <option value="彰化縣" >彰化縣</option>
+                            <option value="南投縣" >南投縣</option>
+                            <option value="嘉義市" >嘉義市</option>
+                            <option value="嘉義縣" >嘉義縣</option>
+                            <option value="雲林縣" >雲林縣</option>
+                            <option value="台南市" >台南市</option>
+                            <option value="高雄市" >高雄市</option>
+                            <option value="屏東縣" >屏東縣</option>
+                            <option value="台東縣" >台東縣</option>
+                            <option value="花蓮縣" >花蓮縣</option>
+                            <option value="金門縣" >金門縣</option>
+                            <option value="連江縣" >連江縣</option>
+                            <option value="澎湖縣" >澎湖縣</option>
+                        </select>
+                    </div>
+
+                    <label for="useType" class="col-sm-2 col-form-label">使用用途</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="useType" id="useType">
+                            <option value="">全部</option>
+                            <option value="AC" >AC</option>
+                            <option value="BOFS_TP" >海事工程</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">查詢月份起</label>
+                    <div class="col-sm-6">
+
+                        <div class="input-group">
+                            <select class="form-control" name="fromMonth">
+                                    <option  selected>01</option>
+                                    <option >02</option>
+                                    <option >03</option>
+                                    <option >04</option>
+                                    <option >05</option>
+                                    <option >06</option>
+                                    <option >07</option>
+                                    <option >08</option>
+                                    <option >09</option>
+                                    <option >10</option>
+                                    <option >11</option>
+                                    <option >12</option>
+                            </select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">至</span>
+                            </div>
+                            <select class="form-control" name="endMonth">
+                                    <option >01</option>
+                                    <option >02</option>
+                                    <option >03</option>
+                                    <option >04</option>
+                                    <option >05</option>
+                                    <option >06</option>
+                                    <option >07</option>
+                                    <option >08</option>
+                                    <option >09</option>
+                                    <option >10</option>
+                                    <option >11</option>
+                                    <option  selected>12</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <label for="category" class="col-sm-2 col-form-label">查詢單位類別</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="category" name="category">
+                            <option value="">全部</option>
+                            <option value="中央部會" >中央部會</option>
+                            <option value="地方政府" >地方政府</option>
+                            <option value="其他單位" >其他單位</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="custName" class="col-sm-2 col-form-label">查詢工程單位</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="custName" name="custName">
+                            <option value="">全部</option>
+
+
+                            <optgroup label="中央部會">
+                                        <option value="公路總局" >
+                                            公路總局
+                                        </option>
+                                        <option value="水利署" >
+                                            水利署
+                                        </option>
+                                        <option value="營建署" >
+                                            營建署
+                                        </option>
+                                        <option value="高速公路局" >
+                                            高速公路局
+                                        </option>
+                            </optgroup>
+
+                            <optgroup label="地方政府">
+                                        <option value="南投縣政府" >
+                                            南投縣政府
+                                        </option>
+                                        <option value="台中市政府" >
+                                            台中市政府
+                                        </option>
+                                        <option value="台南市政府" >
+                                            台南市政府
+                                        </option>
+                                        <option value="屏東縣政府" >
+                                            屏東縣政府
+                                        </option>
+                                        <option value="新竹縣政府" >
+                                            新竹縣政府
+                                        </option>
+                                        <option value="桃園市政府" >
+                                            桃園市政府
+                                        </option>
+                                        <option value="苗栗縣政府" >
+                                            苗栗縣政府
+                                        </option>
+                                        <option value="高雄市政府" >
+                                            高雄市政府
+                                        </option>
+                            </optgroup>
+
+                            <optgroup label="其它">
+                                        <option value="台水" >
+                                            台水
+                                        </option>
+                                        <option value="工業區服務中心" >
+                                            工業區服務中心
+                                        </option>
+                                        <option value="港務公司" >
+                                            港務公司
+                                        </option>
+                                        <option value="瑪家國中" >
+                                            瑪家國中
+                                        </option>
+                            </optgroup>
+
+
+                        </select>
+                    </div>
+                    <div class="col-sm-5">
+                    </div>
+
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary" onclick="$('#area').val('')">查詢</button>
+                        <a  class="btn btn-secondary" href="/api/index">重設</a>
+                    </div>
+
+
+                </div>
+
+                <div class="areaStyle scrollable col-md-3 offset-md-3">
+    <div style="display: none">大溪區</div>
+    <div style="display: none">蘆竹區</div>
+
+
+
+
+
+
+
+
+    <table class="AreaColor1">
+        <tbody>
+        <tr>
+            <td></td>
+            <td>
+                <div class="badge badge-secondary">觀音區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">大園區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">蘆竹區</div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="badge badge-secondary">新屋區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">中壢區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">桃園區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">龜山區</div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="badge badge-secondary">楊梅區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">平鎮區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">八德區</div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <div class="badge badge-secondary">龍潭區</div>
+            </td>
+            <td>
+                <div class="badge badge-secondary">大溪區</div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <div class="badge badge-secondary">復興區</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <div class="row p-l-2 p-r-2">
+                    <div id="area" class="col-6 text-left">
+                        <label style="width: auto;">
+                            <span class="">查詢範圍:</span>
+                        </label>
+                        <span class="badge badge-info" style="">桃園市</span>
+                        <span class="badge badge-info" style=""></span>
+                    </div>
+
+                    <div id="note" class="col-6 text-right">
+                        <span class="badge badge-danger">紅色</span><span>:</span><span style="padding-left: .5rem;">有使用</span>
+                        <span class="badge badge-secondary">灰色</span><span>:</span><span style="padding-left: .5rem;">沒使用</span>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+    </div>
+    <br/>
+
+
+            <table class="table table-bordered table-sm" id="example">
+                <thead>
+                <tr class="table-info text-center">
+                    <th scope="col" style="width:8%">縣市別</th>
+                    <th scope="col" style="width:8%">鄉鎮區</th>
+                    <th scope="col" style="width:18%">工程名稱</th>
+                    <th scope="col" style="width:18%">工程地點</th>
+                    <th scope="col" style="width:12%">工程單位</th>
+                    <th scope="col" style="width:9%">轉爐石來源</th>
+                    <th scope="col" style="width:8%">加工機構</th>
+                    <th scope="col" style="width:7%">使用用途</th>
+                    <th scope="col" style="width:12%">使用重量(公噸)</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-center">桃園市</th>
+                        <td class="text-center">大溪區</td>
+                        <td class="text-left">公路總局一區(偉雍)台3線30K~33K及36K~37K瀝青混凝土道路路面整修工程</td>
+                        <td class="text-left">桃園市大溪區內山公路</td>
+                        <td class="text-center">公路總局</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">749.68</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">桃園市</th>
+                        <td class="text-center">大溪區</td>
+                        <td class="text-left">公路總局一區(偉雍)台3線30K~33K及36K~37K瀝青混凝土道路路面整修工程</td>
+                        <td class="text-left">桃園市大溪區內山公路</td>
+                        <td class="text-center">公路總局</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">1,105.42</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">桃園市</th>
+                        <td class="text-center">大溪區</td>
+                        <td class="text-left">公路總局一區(偉雍)台3線30K~33K及36K~37K瀝青混凝土道路路面整修工程</td>
+                        <td class="text-left">桃園市大溪區內山公路</td>
+                        <td class="text-center">公路總局</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">457.64</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">桃園市</th>
+                        <td class="text-center">蘆竹區</td>
+                        <td class="text-left">桃園市蘆竹區公所(東利)長安路二段道路歲修工程</td>
+                        <td class="text-left">桃園市蘆竹區長安路二段133-79</td>
+                        <td class="text-center">桃園市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">538.54</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">桃園市</th>
+                        <td class="text-center">蘆竹區</td>
+                        <td class="text-left">桃園市蘆竹區公所(東利)長安路二段道路歲修工程</td>
+                        <td class="text-left">桃園市蘆竹區長安路二段133-79</td>
+                        <td class="text-center">桃園市政府</td>
+                        <td class="text-center">中鋼</td>
+                        <td class="text-center">中聯</td>
+                        <td class="text-center">AC粒料</td>
+                        <td class="text-right">186.6</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "searching": false,
+            iDisplayLength: 50,
+            bDestroy: true,
+            tPaginate: true,
+            bPaginate: true,
+            responsive: true,
+            // colReorder: true,
+            lengthChange: true,
+            fixedHeader: true,
+            dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+
+            language: {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 項結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+                "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
+                "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+                "infoPostFix": "",
+                "search": "",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            }
+        });
+
+
+        var citys = ["大溪區","蘆竹區"];
+
+        // 讓 LABEL 發光
+        $.each(citys, function (key, value) {
+            $('.areaStyle').find('div:contains(' + value + ')').addClass('badge-danger');
+        });
+
+
+        // 點 LABEL 自動 SUBMIT
+        $('.areaStyle td').on('click', function () {
+            var area = $(this).text().trim();
+            $('#area').val(area);
+            $('#form').submit();
+            //alert($(this).text().trim());
+        })
+
+    });
+</script>
+
+</body>
+</html>
